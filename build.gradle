@@ -29,4 +29,5 @@ task clean(type: Delete) {
 
 project.ext {
     starWarsUrl = "https://swapi.co/"
+    minNumberOfCharactersForSearch = 3
 }

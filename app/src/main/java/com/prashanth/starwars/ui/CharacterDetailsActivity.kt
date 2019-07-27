@@ -39,7 +39,6 @@ class CharacterDetailsActivity : AppCompatActivity(), APIContract.SpeciesView, A
     @Inject
     lateinit var linearLayoutManager: LinearLayoutManager
 
-
     companion object {
         fun startCharacterDetailsActivity(response: StarWarsCharacterDetails, context: Context) {
             val intent = Intent(context, CharacterDetailsActivity::class.java)
@@ -52,16 +51,17 @@ class CharacterDetailsActivity : AppCompatActivity(), APIContract.SpeciesView, A
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_characters_details)
         StarWarsApplication.component.inject(this)
-        response = intent.extras.get("RESPONSE") as StarWarsCharacterDetails
 
         films_recycler_view.layoutManager = linearLayoutManager
         films_recycler_view.adapter = adapter
+
+        response = intent?.extras?.get("RESPONSE") as StarWarsCharacterDetails
 
         character_name_id.text = response!!.name
         birth_year_id.text = response!!.birthYear
         height_id.text = response!!.height
 
-        starWarsSpeciesPresenter.fetchStarWarsSpeciesDetails(response!!.speciesUrl[0].toString(), this)
+        starWarsSpeciesPresenter.fetchStarWarsSpeciesDetails(response!!.speciesUrl[0], this)
 
     }
 
@@ -78,7 +78,7 @@ class CharacterDetailsActivity : AppCompatActivity(), APIContract.SpeciesView, A
         species_name_id.text = starWarsSpeciesDetails.name
         language_id.text = starWarsSpeciesDetails.language
 
-        starWarsHomeWorldPresenter.fetchStarWarsHomeWorldDetails(response!!.homeWorldUrl, this);
+        starWarsHomeWorldPresenter.fetchStarWarsHomeWorldDetails(response!!.homeWorldUrl, this)
     }
 
     override fun onReponseHomeWorldDetails(starWarsHomeWorldDetails: StarWarsHomeWorldDetails) {

@@ -8,7 +8,6 @@ import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -54,16 +53,15 @@ class StarWarsFilmDetailsPresenter : APIContract.StarWarsFilmDetailsPresenter {
                 for (o in objects) {
                     filmDetailsResponse.add(o as StarWarsFilmsDetails)
                 }
-                filmDetailsResponse
+                return@zip filmDetailsResponse
             }
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .subscribe(
                 { filmDetailsResponses ->
-                    Timber.d("size %s", filmDetailsResponses.size)
                     view.onReponseFilmDetails(filmDetailsResponses)
                 },
-                { e -> Timber.e(e) }
+                { e -> view.callFailed(e) }
             )
         compositeDisposable.add(disposable)
     }

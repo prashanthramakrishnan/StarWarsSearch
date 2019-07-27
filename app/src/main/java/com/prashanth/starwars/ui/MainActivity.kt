@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import butterknife.BindView
 import butterknife.ButterKnife
 import com.jakewharton.rxbinding3.widget.textChanges
+import com.prashanth.starwars.BuildConfig
 import com.prashanth.starwars.R
 import com.prashanth.starwars.StarWarsApplication
 import com.prashanth.starwars.adapter.CharacterSearchAdapter
@@ -49,7 +50,6 @@ class MainActivity : AppCompatActivity(), APIContract.CharacterSearchView {
         StarWarsApplication.component.inject(this)
         recycler_view.layoutManager = linearLayoutManager
         recycler_view.adapter = adapter
-//        starWarsCharacterSearchPresenter.fetchStarWarsCharacters("PO", this)
 
     }
 
@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity(), APIContract.CharacterSearchView {
     }
 
     private fun attachEditTextBindings() {
-        if (disposable != null && !disposable!!.isDisposed()) {
+        if (disposable != null && !disposable!!.isDisposed) {
             disposable!!.dispose()
         }
         disposable = searchEditText.textChanges()
@@ -80,8 +80,7 @@ class MainActivity : AppCompatActivity(), APIContract.CharacterSearchView {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe { queryString ->
                 val length = queryString.count()
-                if (length > 0 && length >= Integer.valueOf(2)) {
-                    Timber.d("String query %s", queryString.toString())
+                if (length > 0 && length >= Integer.valueOf(BuildConfig.MIN_CHARACTER_SEARCH_COUNT)) {
                     starWarsCharacterSearchPresenter.fetchStarWarsCharacters(queryString.toString(), this)
                     hideKeyboard()
                 }
@@ -91,7 +90,7 @@ class MainActivity : AppCompatActivity(), APIContract.CharacterSearchView {
     private fun hideKeyboard() {
         if (currentFocus != null) {
             val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            inputMethodManager?.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
+            inputMethodManager.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
         }
     }
 

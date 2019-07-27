@@ -13,6 +13,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField "String", "STAR_WARS_URL", "\"${project.starWarsUrl}\""
+        buildConfigField "String", "MIN_CHARACTER_SEARCH_COUNT", "\"${project.minNumberOfCharactersForSearch}\""
     }
 
     dataBinding {
@@ -86,16 +87,9 @@ dependencies {
     //Timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
-    //lombok
-    compileOnly 'org.projectlombok:lombok:1.18.6'
-    annotationProcessor 'org.projectlombok:lombok:1.18.6'
-
     //butterknife
     implementation 'com.jakewharton:butterknife:10.1.0'
     kapt 'com.jakewharton:butterknife-compiler:10.1.0'
-
-    //Play services
-    implementation 'com.google.android.gms:play-services-location:17.0.0'
 
     //Commons
     implementation 'org.apache.directory.studio:org.apache.commons.io:2.4'

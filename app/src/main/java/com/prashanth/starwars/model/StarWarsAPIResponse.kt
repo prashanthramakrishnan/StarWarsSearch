@@ -1,12 +1,8 @@
 package com.prashanth.starwars.model
 
 import com.google.gson.annotations.SerializedName
-import lombok.Getter
-import lombok.Setter
 import java.io.Serializable
 
-@Getter
-@Setter
 class StarWarsAPIResponse(
     @SerializedName("count") val count: Int,
     @SerializedName("next") val nextUrl: String,

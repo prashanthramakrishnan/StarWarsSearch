@@ -21,10 +21,6 @@ interface StarWarsAPI {
     @GET
     fun getFilmDetails(@Url url: String): Observable<StarWarsFilmsDetails>
 
-
     @GET("/api/people/")
-    fun searchPeople(
-        @Query("search") page: String
-    ): Observable<StarWarsAPIResponse>
-
+    fun searchPeople(@Query("search") page: String): Observable<StarWarsAPIResponse>
 }

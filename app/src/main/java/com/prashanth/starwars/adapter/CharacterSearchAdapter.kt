@@ -14,7 +14,7 @@ import com.prashanth.starwars.ui.CharacterDetailsActivity
 
 class CharacterSearchAdapter(context: Context) : RecyclerView.Adapter<CharacterSearchAdapter.ViewHolder>() {
 
-    var activity: Context = context
+    private var activity: Context = context
 
     private var characterNameList: List<StarWarsCharacterDetails>? = null
 
@@ -27,8 +27,8 @@ class CharacterSearchAdapter(context: Context) : RecyclerView.Adapter<CharacterS
         holder.characterName.text = characterNameList!![position].name
         holder.birthYear.text = characterNameList!![position].birthYear
 
-        holder.itemView.setOnClickListener { v ->
-            CharacterDetailsActivity.startCharacterDetailsActivity(characterNameList!![position], activity);
+        holder.itemView.setOnClickListener {
+            CharacterDetailsActivity.startCharacterDetailsActivity(characterNameList!![position], activity)
         }
     }
 
