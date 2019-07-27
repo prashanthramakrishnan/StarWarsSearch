@@ -4,13 +4,13 @@ import android.app.Application
 import com.prashanth.starwars.dependencyInjection.*
 import timber.log.Timber
 
-class StarWarsApplication : Application() {
+open class StarWarsApplication : Application() {
 
     companion object {
         lateinit var component: AppDaggerGraph
     }
 
-    protected fun daggerComponent(application: StarWarsApplication): DaggerAppDaggerGraph.Builder {
+    protected open fun daggerComponent(application: StarWarsApplication): DaggerAppDaggerGraph.Builder {
         return DaggerAppDaggerGraph.builder()
             .networkDaggerModule(NetworkDaggerModule(BuildConfig.STAR_WARS_URL))
             .applicationModule(ApplicationModule(this))
