@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity(), APIContract.CharacterSearchView {
 
     private var disposable: Disposable? = null
 
-    @BindView(R.id.search_vew)
+    @BindView(R.id.search_view)
     lateinit var searchEditText: EditText
 
     @Inject

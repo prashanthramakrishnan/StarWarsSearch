@@ -11,7 +11,7 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.prashanth.starwars.TestRunner"
         buildConfigField "String", "STAR_WARS_URL", "\"${project.starWarsUrl}\""
         buildConfigField "String", "MIN_CHARACTER_SEARCH_COUNT", "\"${project.minNumberOfCharactersForSearch}\""
     }
@@ -45,6 +45,10 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation ('com.squareup.okhttp3:mockwebserver:4.0.1') {
+        exclude group:'com.squareup.okio', module: 'okio'
+    }
 
     kapt 'com.android.databinding:compiler:3.4.2'
 
@@ -62,9 +66,7 @@ dependencies {
     androidTestImplementation('com.jayway.android.robotium:robotium-solo:5.6.3') {
         exclude group: 'com.android.support', module: 'support-v4'
     }
-    androidTestImplementation ('com.squareup.okhttp3:mockwebserver:3.6.0') {
-        exclude group:'com.squareup.okio', module: 'okio'
-    }
+
 
     //dagger
     implementation 'com.google.dagger:dagger:2.21'
@@ -76,10 +78,10 @@ dependencies {
     implementation 'com.jakewharton.rxbinding3:rxbinding:3.0.0-alpha2'
 
     //Retrofit2
-    implementation "com.squareup.retrofit2:retrofit:2.5.0"
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.13.1'
-    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.5.0'
-    implementation "com.squareup.retrofit2:converter-gson:2.5.0"
+    implementation "com.squareup.retrofit2:retrofit:2.6.0"
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.0.1'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.6.0'
+    implementation "com.squareup.retrofit2:converter-gson:2.6.0"
 
     //Gson
     implementation "com.google.code.gson:gson:2.8.5"

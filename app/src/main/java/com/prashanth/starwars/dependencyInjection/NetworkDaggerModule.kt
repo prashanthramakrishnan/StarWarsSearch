@@ -41,7 +41,7 @@ class NetworkDaggerModule(private val url: String) {
         client.retryOnConnectionFailure(true)
         client.connectTimeout(timeout.toLong(), TimeUnit.SECONDS)
         client.readTimeout(timeout.toLong(), TimeUnit.SECONDS)
-        client.connectTimeout(timeout.toLong(), TimeUnit.SECONDS)
+        client.writeTimeout(timeout.toLong(), TimeUnit.SECONDS)
         if (BuildConfig.DEBUG) {
             client.addInterceptor(debugInterceptor)
         }
