@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import butterknife.BindView
@@ -63,11 +64,15 @@ class MainActivity : AppCompatActivity(), APIContract.CharacterSearchView {
 
     override fun callFailed(throwable: Throwable) {
         Timber.e(throwable, "callFailed")
+        Toast.makeText(this@MainActivity, R.string.error, Toast.LENGTH_SHORT).show()
     }
 
     override fun onResponseCharacterSearch(starWarsCharacterDetails: List<StarWarsCharacterDetails>) {
-        Timber.d("onResponseCharacterSearch")
-        adapter.update(starWarsCharacterDetails)
+        if (starWarsCharacterDetails.isEmpty()) {
+            Toast.makeText(this@MainActivity, R.string.no_results_found, Toast.LENGTH_SHORT).show()
+        } else {
+            adapter.update(starWarsCharacterDetails)
+        }
     }
 
     private fun attachEditTextBindings() {

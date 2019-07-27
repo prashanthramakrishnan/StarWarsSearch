@@ -13,4 +13,8 @@
     <string name="release_date">Release date :</string>
     <string name="opening_crawl">Opening Crawl :</string>
     <string name="opening_crawl_test">It is a dark time for the\r\nRebellion. Although the Death\r\nStar has been destroyed,\r\nImperial troops have driven the\r\nRebel forces from their hidden\r\nbase and pursued them across\r\nthe galaxy.\r\n\r\nEvading the dreaded Imperial\r\nStarfleet, a group of freedom\r\nfighters led by Luke Skywalker\r\nhas established a new secret\r\nbase on the remote ice world\r\nof Hoth.\r\n\r\nThe evil lord Darth Vader,\r\nobsessed with finding young\r\nSkywalker, has dispatched\r\nthousands of remote probes into\r\nthe far reaches of space....</string>
+    <string name="error">Oops.. something went wrong</string>
+    <string name="no_results_found">Sorry.. no results found</string>
+    <string name="loading">Loading.. Please wait</string>
+
 </resources>

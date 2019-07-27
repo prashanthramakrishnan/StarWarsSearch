@@ -20,7 +20,7 @@ import javax.inject.Singleton
 @Module
 class NetworkDaggerModule(private val url: String) {
 
-    private val TIMEOUT = 10
+    private val timeout = 5
 
     @Provides
     @Singleton
@@ -39,9 +39,9 @@ class NetworkDaggerModule(private val url: String) {
         client.followRedirects(true)
         client.followSslRedirects(true)
         client.retryOnConnectionFailure(true)
-        client.connectTimeout(TIMEOUT.toLong(), TimeUnit.SECONDS)
-        client.readTimeout(TIMEOUT.toLong(), TimeUnit.SECONDS)
-        client.connectTimeout(TIMEOUT.toLong(), TimeUnit.SECONDS)
+        client.connectTimeout(timeout.toLong(), TimeUnit.SECONDS)
+        client.readTimeout(timeout.toLong(), TimeUnit.SECONDS)
+        client.connectTimeout(timeout.toLong(), TimeUnit.SECONDS)
         if (BuildConfig.DEBUG) {
             client.addInterceptor(debugInterceptor)
         }
