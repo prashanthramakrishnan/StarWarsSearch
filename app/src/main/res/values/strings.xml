@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">StarWarsSearch</string>
+    <string name="enter_character_name">Enter character name</string>
+    <string name="character_name">Character name :</string>
+    <string name="birth_year">Birth year :</string>
+    <string name="height">Height :</string>
+    <string name="species_name">Species name :</string>
+    <string name="language">Language :</string>
+    <string name="homeworld">Homeworld :</string>
+    <string name="population">Population :</string>
+    <string name="films">Films :</string>
+    <string name="film_title">Title :</string>
+    <string name="release_date">Release date :</string>
+    <string name="opening_crawl">Opening Crawl :</string>
+    <string name="opening_crawl_test">It is a dark time for the\r\nRebellion. Although the Death\r\nStar has been destroyed,\r\nImperial troops have driven the\r\nRebel forces from their hidden\r\nbase and pursued them across\r\nthe galaxy.\r\n\r\nEvading the dreaded Imperial\r\nStarfleet, a group of freedom\r\nfighters led by Luke Skywalker\r\nhas established a new secret\r\nbase on the remote ice world\r\nof Hoth.\r\n\r\nThe evil lord Darth Vader,\r\nobsessed with finding young\r\nSkywalker, has dispatched\r\nthousands of remote probes into\r\nthe far reaches of space....</string>
+</resources>
