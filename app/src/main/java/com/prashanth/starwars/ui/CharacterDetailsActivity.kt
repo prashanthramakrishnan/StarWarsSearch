@@ -101,12 +101,12 @@ class CharacterDetailsActivity : AppCompatActivity(), APIContract.SpeciesView, A
         starWarsHomeWorldPresenter.fetchStarWarsHomeWorldDetails(response!!.homeWorldUrl, this)
     }
 
-    override fun onReponseHomeWorldDetails(starWarsHomeWorldDetails: StarWarsHomeWorldDetails) {
+    override fun onResponseHomeWorldDetails(starWarsHomeWorldDetails: StarWarsHomeWorldDetails) {
         setHomeWorldDetails(starWarsHomeWorldDetails)
         starWarsFilmDetailsPresenter.fetchStarWarsFilmsDetails(response!!.filmsUrl, this)
     }
 
-    override fun onReponseFilmDetails(starWarsFilmsDetails: List<StarWarsFilmsDetails>) {
+    override fun onResponseFilmDetails(starWarsFilmsDetails: List<StarWarsFilmsDetails>) {
         dismissProgressDialog()
         adapter.update(starWarsFilmsDetails)
     }
@@ -121,5 +121,12 @@ class CharacterDetailsActivity : AppCompatActivity(), APIContract.SpeciesView, A
 
     private fun dismissProgressDialog() {
         progressDialog?.dismiss()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        starWarsHomeWorldPresenter.onDestroy()
+        starWarsSpeciesPresenter.onDestroy()
+        starWarsFilmDetailsPresenter.onDestroy()
     }
 }

@@ -1,5 +1,6 @@
 package com.prashanth.starwars.presenter
 
+import androidx.annotation.VisibleForTesting
 import com.prashanth.starwars.StarWarsApplication
 import com.prashanth.starwars.contracts.APIContract
 import com.prashanth.starwars.model.StarWarsHomeWorldDetails
@@ -23,8 +24,14 @@ class StarWarsHomeWorldPresenter : APIContract.StarWarsHomeWorldPresenter {
 
     private lateinit var view: APIContract.HomeWorldView
 
-    init {
+    constructor() {
         StarWarsApplication.component.inject(this)
+    }
+
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    constructor(starWarsAPI: StarWarsAPI, view: APIContract.HomeWorldView) {
+        this.starWarsAPI = starWarsAPI
+        this.view = view
     }
 
 
@@ -48,7 +55,7 @@ class StarWarsHomeWorldPresenter : APIContract.StarWarsHomeWorldPresenter {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeWith(object : DisposableObserver<StarWarsHomeWorldDetails>() {
                 override fun onNext(response: StarWarsHomeWorldDetails) {
-                    view.onReponseHomeWorldDetails(response)
+                    view.onResponseHomeWorldDetails(response)
                 }
 
                 override fun onError(e: Throwable) {

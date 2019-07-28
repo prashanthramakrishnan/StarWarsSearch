@@ -28,12 +28,12 @@ interface APIContract {
 
     interface HomeWorldView : View {
 
-        fun onReponseHomeWorldDetails(starWarsHomeWorldDetails: StarWarsHomeWorldDetails)
+        fun onResponseHomeWorldDetails(starWarsHomeWorldDetails: StarWarsHomeWorldDetails)
     }
 
     interface FilmDetailsView : View {
 
-        fun onReponseFilmDetails(starWarsFilmsDetails: List<StarWarsFilmsDetails>)
+        fun onResponseFilmDetails(starWarsFilmsDetails: List<StarWarsFilmsDetails>)
     }
 
     interface Presenter {

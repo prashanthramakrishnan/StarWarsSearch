@@ -51,7 +51,6 @@ class MainActivity : AppCompatActivity(), APIContract.CharacterSearchView {
         StarWarsApplication.component.inject(this)
         recycler_view.layoutManager = linearLayoutManager
         recycler_view.adapter = adapter
-
     }
 
     override fun callStarted() {
@@ -110,4 +109,8 @@ class MainActivity : AppCompatActivity(), APIContract.CharacterSearchView {
         attachEditTextBindings()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        starWarsCharacterSearchPresenter.onDestroy()
+    }
 }

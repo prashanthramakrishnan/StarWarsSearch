@@ -1,5 +1,6 @@
 package com.prashanth.starwars.presenter
 
+import androidx.annotation.VisibleForTesting
 import com.prashanth.starwars.StarWarsApplication
 import com.prashanth.starwars.contracts.APIContract
 import com.prashanth.starwars.model.StarWarsAPIResponse
@@ -23,8 +24,14 @@ class StarWarsCharacterSearchPresenter : APIContract.StarWarsCharactersSearchPre
 
     private lateinit var view: APIContract.CharacterSearchView
 
-    init {
+    constructor() {
         StarWarsApplication.component.inject(this)
+    }
+
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    constructor(starWarsAPI: StarWarsAPI, view: APIContract.CharacterSearchView) {
+        this.starWarsAPI = starWarsAPI
+        this.view = view
     }
 
 

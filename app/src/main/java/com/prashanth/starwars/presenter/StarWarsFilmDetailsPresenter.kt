@@ -1,5 +1,6 @@
 package com.prashanth.starwars.presenter
 
+import androidx.annotation.VisibleForTesting
 import com.prashanth.starwars.StarWarsApplication
 import com.prashanth.starwars.contracts.APIContract
 import com.prashanth.starwars.model.StarWarsFilmsDetails
@@ -23,8 +24,14 @@ class StarWarsFilmDetailsPresenter : APIContract.StarWarsFilmDetailsPresenter {
 
     private lateinit var view: APIContract.FilmDetailsView
 
-    init {
+    constructor() {
         StarWarsApplication.component.inject(this)
+    }
+
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    constructor(starWarsAPI: StarWarsAPI, view: APIContract.FilmDetailsView) {
+        this.starWarsAPI = starWarsAPI
+        this.view = view
     }
 
 
@@ -59,7 +66,7 @@ class StarWarsFilmDetailsPresenter : APIContract.StarWarsFilmDetailsPresenter {
             .subscribeOn(Schedulers.io())
             .subscribe(
                 { filmDetailsResponses ->
-                    view.onReponseFilmDetails(filmDetailsResponses)
+                    view.onResponseFilmDetails(filmDetailsResponses)
                 },
                 { e -> view.callFailed(e) }
             )
