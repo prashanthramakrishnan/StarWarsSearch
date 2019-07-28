@@ -29,7 +29,8 @@ Refer [here](https://gist.github.com/jemshit/767ab25a9670eb0083bafa65f8d786bb) f
     overhead on pagination! (😉)
     - When the search is carried out it hits the SWAPI [people search API](https://swapi.co/documentation#search) to fetch the character details and shows it in a RecyclerView
     - Network timeout, errors are generically handled via the presenter (StarWarsCharacterSearchPresenter.kt) for character search
-    - When you tap on any of the character details the app goes to a new screen where further more character information is shown as per the requirements
+    - When you tap on any of the character details the app goes to a new screen where further more character information is shown as per the requirements. The films section is
+    scrollable and achieved by using recycler view
     - Now comes the tricky part, I have created 3 presenters based on the business requirement and each presenter queries for corresponding business logic.
     2 of these presenters (StarWarsSpeciesPresenter.kt & StarWarsHomeWorldPresenter.kt) are fairly simple which just makes a network call and presents the results to the view, however there is some interesting stuff with
     the 3rd presenter(StarWarsFilmDetailsPresenter) uses some cool RxJava2 use case, where an array of urls are hit one by one by using the Observable.zip API. The combined result 
