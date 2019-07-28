@@ -15,6 +15,7 @@ Refer [here](https://gist.github.com/jemshit/767ab25a9670eb0083bafa65f8d786bb) f
 
 **Note**
 - There is no DB in this application, data is shown as is from the API calls!
+- Tested on Motorola Moto G4, Android version 7.0
 
 
 **Explanation or so to say "THOUGHT PROCESS"**
