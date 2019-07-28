@@ -39,7 +39,7 @@ explicit safe guard present in Kotlin. It is safe to say that Mockito does not f
 test case which circumvents this. There is also a nice blog by [Elye](https://medium.com/@elye.project/befriending-kotlin-and-mockito-1c2e7b0ef791) which helped me in figuring this out.
 - Instrumentation test is done using Robotium, fairly simple I have tested the happy-flow. You can run it from the IDE or by the connectedAndroidTest
 gradle command
-- You can find that I have a @VisibleForTesting anootation for constructors in the presenters, I decided to use for ease of development, however in case 
+- You can find that I have a @VisibleForTesting annotation for constructors in the presenters, I decided to use for ease of development, however in case 
 if this has to be removed, an explicit @Inject in the primary constructors would be needed rather than the conventional @Provides method. I decided to use the
 former to reduce my efforts, but I am open for a constructive dialogue/debate or to change this implementation!
 - And, yes if you get a chance to see my Github code where I did submit a few more exercises like these, you would find that I stick to a similar
@@ -47,7 +47,8 @@ way of using dependency injection with Dagger as in the current application. Thi
 a discussion/debate 😃).
 - As like any code 🐞 do exist which are not visible to me, please do tell me your feedback! 
 
-**Open source libaries used**
+**Open source libraries used**
+
 - **[Dagger2](https://github.com/google/dagger)**
 - **[RxJava2](https://github.com/ReactiveX/RxJava)**
 - **[RxAndroid](https://github.com/ReactiveX/RxAndroid)**
