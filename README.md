@@ -22,6 +22,7 @@ Refer [here](https://gist.github.com/jemshit/767ab25a9670eb0083bafa65f8d786bb) f
 - Kotlin is a fairly new language to me/us and I did face quite some hurdles, but nevertheless I did learn a lot more on this below
 - Follows or tries to stick to 😉 MVP pattern with usages of Kotlin-Dagger-RxJava2-Retrofit
 - I decided to use Dagger for dependency injection, Retrofit, OkHttp for network calls and RxJava2 for reducing boiler plate code
+- Consumes data from network directly, no storage or database exists
 - The app is fairly simple.
     - When the app is launched, you will see a search EditText at the top, I use RxTextView here to emit EditText changes.
     - I have limited the minimum character length for the API hit to be 3, if you ask why? I would say I like the number 3, and reduces my
